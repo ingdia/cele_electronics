@@ -24,9 +24,9 @@ const config: Config = {
           600: '#B88B2A',
         },
         cream: {
-          50: '#FAF7F4',
-          100: '#F5F0EB', // Soft Beige/Cream Background
-          200: '#EBE2D8',
+          50: '#F5F5F7',  // Whitish Gray Page Background
+          100: '#F5F5F7', // Whitish Gray Page Background
+          200: '#E8E8ED',
         }
       },
       fontFamily: {
@@ -38,9 +38,9 @@ const config: Config = {
         'pill': '25px',
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.06)',
-        'card': '0 8px 30px rgba(0, 0, 0, 0.08)',
-        'floating': '0 12px 40px rgba(0, 0, 0, 0.12)',
+        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.04)',
+        'card': '0 8px 30px rgba(0, 0, 0, 0.06)',
+        'floating': '0 12px 40px rgba(0, 0, 0, 0.1)',
       }
     },
   },

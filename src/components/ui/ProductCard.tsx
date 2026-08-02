@@ -23,7 +23,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.25, type: 'spring', stiffness: 200 }}
-      className="bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all duration-300 border border-gray-100 flex flex-col justify-between group relative h-full"
+      className="bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all duration-300 border border-gray-100/50 flex flex-col justify-between group relative h-full"
     >
       
       {/* Top Badges & Wishlist Toggle */}
@@ -66,13 +66,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Image Centered */}
       <div 
         onClick={() => setQuickViewProduct(product)}
-        className="relative w-full h-40 my-3 cursor-pointer overflow-hidden rounded-xl bg-cream-50/50 flex items-center justify-center"
+        className="relative w-full h-48 cursor-pointer overflow-hidden rounded-xl bg-[#F5F5F7] border border-gray-150/40 flex items-center justify-center"
       >
         <Image
           src={product.image}
           alt={product.name}
           fill
-          className="object-contain p-3 group-hover:scale-108 transition-transform duration-500"
+          className="object-cover w-full h-full group-hover:scale-108 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
         />
       </div>
