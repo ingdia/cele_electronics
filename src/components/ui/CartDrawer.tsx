@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useStore } from '@/context/StoreContext';
 import { X, Trash2, Plus, Minus, CreditCard, ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const CartDrawer = () => {
   const { 
@@ -220,13 +221,23 @@ export const CartDrawer = () => {
                 <span>${(cartSubtotal * 1.08 + 5).toFixed(2)}</span>
               </div>
 
-              <button
-                onClick={() => setCheckoutStep('shipping')}
-                className="w-full py-3 bg-navy-900 hover:bg-navy-800 text-white rounded-full font-bold shadow-md transition-colors flex items-center justify-center gap-2 mt-4 text-xs"
-              >
-                <span>Proceed to Checkout</span>
-                <span>→</span>
-              </button>
+              <div className="grid grid-cols-2 gap-2 mt-4">
+                <Link
+                  href="/cart"
+                  onClick={() => setIsCartOpen(false)}
+                  className="py-3 bg-cream-200 hover:bg-gray-200 text-navy-900 rounded-full font-bold text-xs shadow-sm transition-colors flex items-center justify-center"
+                >
+                  View Cart
+                </Link>
+                <Link
+                  href="/checkout"
+                  onClick={() => setIsCartOpen(false)}
+                  className="py-3 bg-navy-900 hover:bg-navy-800 text-white rounded-full font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-1"
+                >
+                  <span>Checkout</span>
+                  <span>→</span>
+                </Link>
+              </div>
             </div>
           )}
 
