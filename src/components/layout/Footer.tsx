@@ -203,8 +203,8 @@ export const Footer = () => {
           <div className="flex flex-wrap items-center gap-3">
             <span>Payment Options:</span>
             <div className="flex items-center gap-2 bg-navy-900 px-3 py-1 rounded-md border border-gray-800 text-[10px] font-bold">
-              <CreditCard className="w-3.5 h-3.5 text-gold-500" />
-              <span>VISA • MASTERCARD • PAYPAL • APPLE PAY • GOOGLE PAY</span>
+              <CreditCard className="w-3.5 h-3.5 text-amber-400" />
+              <span>MTN MOMO PAY • VISA • MASTERCARD • PAYPAL • APPLE PAY</span>
             </div>
           </div>
 
