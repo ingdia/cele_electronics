@@ -185,11 +185,11 @@ export const Footer = () => {
           <div className="space-y-2 pt-2 border-t border-gray-800 text-xs text-gray-400">
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-gold-500 shrink-0" />
-              <span>100 Technology Plaza, San Jose, CA</span>
+              <span>Kigali Heights, KG 7 Ave, Kigali, Rwanda</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-gold-500 shrink-0" />
-              <span>(123) 456-7890</span>
+              <span>+250 787 335 768</span>
             </div>
           </div>
         </div>
