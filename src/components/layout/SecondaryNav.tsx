@@ -86,7 +86,7 @@ export const SecondaryNav = () => {
         {/* Right: Support */}
         <div className="flex items-center gap-2 text-xs font-medium text-gray-200">
           <Phone className="w-3.5 h-3.5 text-gold-500" />
-          <span>Support: <strong className="text-white">(123) 456-7890</strong></span>
+          <span>Support: <strong className="text-white">+250 787 335 768</strong></span>
         </div>
 
       </div>
