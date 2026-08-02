@@ -388,9 +388,17 @@ export const AdminDashboard = () => {
                     <h4 className="font-bold text-gray-400 uppercase tracking-wide">Ordered Items</h4>
                     <div className="space-y-1.5">
                       {order.items.map((item, idx) => (
-                        <div key={idx} className="flex justify-between items-center bg-white p-2 rounded-lg border border-gray-50">
-                          <span className="font-semibold text-navy-900 line-clamp-1">{item.productName} (x{item.quantity})</span>
-                          <span className="font-bold text-gray-500">${(item.price * item.quantity).toFixed(2)}</span>
+                        <div key={idx} className="flex justify-between items-center bg-white p-2.5 rounded-xl border border-gray-150">
+                          <div className="flex items-center gap-3">
+                            <div className="relative w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-gray-150 bg-[#F5F5F7]">
+                              <Image src={item.image} alt={item.productName} fill className="object-contain p-0.5" />
+                            </div>
+                            <div>
+                              <p className="font-bold text-navy-900 line-clamp-1">{item.productName}</p>
+                              <p className="text-[10px] text-gray-400 font-semibold">Qty: {item.quantity} • Unit Price: ${item.price.toFixed(2)}</p>
+                            </div>
+                          </div>
+                          <span className="font-black text-navy-900 text-xs">${(item.price * item.quantity).toFixed(2)}</span>
                         </div>
                       ))}
                     </div>
