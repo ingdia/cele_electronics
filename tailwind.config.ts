@@ -24,9 +24,9 @@ const config: Config = {
           600: '#B88B2A',
         },
         cream: {
-          50: '#F5F5F7',  // Whitish Gray Page Background
-          100: '#F5F5F7', // Whitish Gray Page Background
-          200: '#E8E8ED',
+          50: '#FAFAFB',  // Brightened Off-White Background
+          100: '#FAFAFB', // Brightened Off-White Background
+          200: '#F0F0F2',
         }
       },
       fontFamily: {

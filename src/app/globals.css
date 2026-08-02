@@ -4,11 +4,11 @@
   :root {
     --color-navy: #000000; /* Swapped Navy with Black */
     --color-gold: #D4A843;
-    --color-cream: #F5F5F7; /* Swapped White with Whitish Gray */
+    --color-cream: #FAFAFB; /* Brightened off-white background */
   }
 
   body {
-    background-color: #F5F5F7;
+    background-color: #FAFAFB;
     color: #000000;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
@@ -17,7 +17,7 @@
 
 /* Custom Utilities for Cele Electronics */
 .bg-cream {
-  background-color: #F5F5F7;
+  background-color: #FAFAFB;
 }
 
 .bg-navy-900 {

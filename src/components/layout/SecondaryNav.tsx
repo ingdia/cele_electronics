@@ -75,11 +75,11 @@ export const SecondaryNav = () => {
           <Link href="/shop?filter=new" className="hover:text-gold-500 transition-colors">
             New Arrivals
           </Link>
-          <Link href="/#brands" className="hover:text-gold-500 transition-colors">
+          <Link href="/shop" className="hover:text-gold-500 transition-colors">
             Brands
           </Link>
-          <Link href="/#inspiration" className="hover:text-gold-500 transition-colors">
-            Inspiration
+          <Link href="/about" className="hover:text-gold-500 transition-colors">
+            About Us
           </Link>
         </div>
 
