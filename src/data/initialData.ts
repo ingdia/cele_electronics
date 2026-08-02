@@ -276,8 +276,8 @@ export const INITIAL_PRODUCTS: Product[] = [
 export const INITIAL_ORDERS: Order[] = [
   {
     id: 'ORD-8821',
-    customerName: 'Alex Morgan',
-    customerEmail: 'alex.m@example.com',
+    customerName: 'Patrick Kamanzi',
+    customerEmail: 'kigali.shopper@gmail.com',
     items: [
       { productId: 'p1', productName: 'Bluetooth Speaker', price: 49.99, quantity: 1, image: '/images/bluetooth_speaker.jpg' },
       { productId: 'p3', productName: 'Wireless Earbuds', price: 34.99, quantity: 1, image: '/images/wireless_earbuds.jpg' }
@@ -285,20 +285,20 @@ export const INITIAL_ORDERS: Order[] = [
     totalAmount: 84.98,
     status: 'Processing',
     date: '2026-08-02 10:14',
-    shippingAddress: '742 Evergreen Terrace, Springfield, OR',
-    paymentMethod: 'Credit Card (**** 4242)'
+    shippingAddress: 'KG 7 Ave, Kigali Heights, Kigali, Rwanda (Tel: +250 787 335 768)',
+    paymentMethod: 'MTN Mobile Money (MoMo Pay: 0787335768)'
   },
   {
     id: 'ORD-8820',
-    customerName: 'Sarah Jenkins',
-    customerEmail: 'sarah.j@example.com',
+    customerName: 'Clarisse Umutoni',
+    customerEmail: 'clarisse.u@gmail.com',
     items: [
       { productId: 'p2', productName: 'Smart Watch', price: 89.99, quantity: 1, image: '/images/smart_watch.jpg' }
     ],
     totalAmount: 89.99,
     status: 'Shipped',
     date: '2026-08-01 16:45',
-    shippingAddress: '100 Market St, San Francisco, CA',
-    paymentMethod: 'PayPal'
+    shippingAddress: 'KN 4 Ave, Commercial District, Kigali, Rwanda',
+    paymentMethod: 'MTN Mobile Money (MoMo Pay: 0788123456)'
   }
 ];

@@ -197,11 +197,41 @@ function ShopContent() {
         {/* Main Filters + Catalog Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
-          {/* Left Column: Filter Sidebar Panel */}
-          <div className="lg:col-span-3 space-y-6">
+          {/* Left Column: Filter Sidebar Panel (Desktop + Mobile Horizontal Bar) */}
+          <div className="lg:col-span-3 space-y-4 lg:space-y-6">
             
-            {/* Category Filter List */}
-            <div className="bg-white rounded-2xl p-5 border border-gray-150 shadow-soft space-y-4">
+            {/* 1. Mobile Horizontal Category Filter Bar (Visible on mobile & tablet) */}
+            <div className="lg:hidden bg-white p-3.5 rounded-2xl border border-gray-150 shadow-soft space-y-2">
+              <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-wider block">Shop by Category</span>
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                <button
+                  onClick={() => handleCategorySelect(null)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold shrink-0 transition-all ${
+                    selectedCategory === null
+                      ? 'bg-navy-900 text-white shadow-sm'
+                      : 'bg-cream-200 text-navy-900 hover:bg-gray-200'
+                  }`}
+                >
+                  All Categories
+                </button>
+                {BROWSE_CATEGORIES_CIRCLES.map((cat) => (
+                  <button
+                    key={cat.categoryId}
+                    onClick={() => handleCategorySelect(cat.categoryId)}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold shrink-0 transition-all ${
+                      selectedCategory === cat.categoryId
+                        ? 'bg-navy-900 text-white shadow-sm'
+                        : 'bg-cream-200 text-navy-900 hover:bg-gray-200'
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 2. Desktop Category Filter List (Hidden on mobile, visible on lg screens) */}
+            <div className="hidden lg:block bg-white rounded-2xl p-5 border border-gray-150 shadow-soft space-y-4">
               <h3 className="font-extrabold text-navy-900 text-sm border-b border-gray-100 pb-2">Filter by Category</h3>
               <div className="space-y-1.5">
                 <button
@@ -279,7 +309,7 @@ function ShopContent() {
                 layout
                 className={
                   viewMode === 'grid'
-                    ? 'grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6'
+                    ? 'grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-6'
                     : 'flex flex-col gap-4'
                 }
               >

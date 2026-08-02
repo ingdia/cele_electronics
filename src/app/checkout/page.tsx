@@ -17,25 +17,30 @@ export default function CheckoutPage() {
   const [placedOrder, setPlacedOrder] = useState<any>(null);
 
   const [formData, setFormData] = useState({
-    fullName: 'Sarah Jenkins',
-    email: 'customer@cele.com',
-    phone: '(123) 456-7890',
-    address: '100 Market St, Suite 400',
-    city: 'San Francisco',
-    state: 'CA',
-    zip: '94105',
-    paymentMethod: 'Credit Card (Visa ending 4242)'
+    fullName: 'Patrick Kamanzi',
+    email: 'kigali.shopper@gmail.com',
+    phone: '+250 787 335 768',
+    address: 'KG 7 Ave, Kigali Heights',
+    city: 'Kigali',
+    state: 'Kigali City',
+    zip: '0000',
+    momoNumber: '0787335768',
+    paymentMethod: 'MTN Mobile Money (MoMo Pay - 0787335768)'
   });
 
   const handlePlaceOrder = (e: React.FormEvent) => {
     e.preventDefault();
     if (cart.length === 0) return;
 
+    const selectedPayment = formData.paymentMethod.includes('MTN')
+      ? `MTN Mobile Money (MoMo Pay: ${formData.momoNumber})`
+      : formData.paymentMethod;
+
     const order = placeOrder({
       name: formData.fullName,
       email: formData.email,
-      address: `${formData.address}, ${formData.city}, ${formData.state} ${formData.zip}`,
-      paymentMethod: formData.paymentMethod
+      address: `${formData.address}, ${formData.city}, Rwanda (Tel: ${formData.phone})`,
+      paymentMethod: selectedPayment
     });
 
     setPlacedOrder(order);
@@ -159,20 +164,75 @@ export default function CheckoutPage() {
                 <div className="space-y-3 pt-4">
                   <h3 className="font-extrabold text-navy-900 text-xs uppercase tracking-wider text-gray-400 border-b border-gray-100 pb-1">3. Payment Gateway</h3>
                   
+                  {/* MTN MoMo Option */}
+                  <div className="p-3.5 bg-amber-500/10 border-2 border-amber-500/40 rounded-xl space-y-2">
+                    <label className="flex items-center justify-between cursor-pointer font-bold text-navy-900">
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="payment"
+                          defaultChecked
+                          onChange={() => setFormData({ ...formData, paymentMethod: `MTN Mobile Money (MoMo Pay: ${formData.momoNumber})` })}
+                          className="accent-amber-500 w-4 h-4"
+                        />
+                        <span className="font-extrabold text-navy-900">MTN Mobile Money (MoMo Pay)</span>
+                      </div>
+                      <span className="bg-amber-400 text-navy-900 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                        MTN MoMo
+                      </span>
+                    </label>
+
+                    <div className="pl-6 space-y-2">
+                      <p className="text-[11px] text-gray-600 leading-relaxed font-medium">
+                        Enter your MTN Rwanda MoMo phone number. A USSD prompt (*182#) will be sent to your phone to approve the payment.
+                      </p>
+                      
+                      <div className="space-y-1">
+                        <label className="block text-[10px] font-bold text-gray-500">MTN MoMo Phone Number</label>
+                        <input
+                          type="tel"
+                          required
+                          value={formData.momoNumber}
+                          onChange={(e) => setFormData({ ...formData, momoNumber: e.target.value })}
+                          placeholder="0787335768"
+                          className="w-full p-2 rounded-lg border border-amber-300 focus:outline-none focus:border-amber-500 bg-white font-mono text-xs"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Credit Card Option */}
                   <div className="p-3 bg-cream-50 border border-gray-200 rounded-xl space-y-2">
                     <label className="flex items-center gap-2 cursor-pointer font-bold text-navy-900">
                       <input
                         type="radio"
                         name="payment"
-                        defaultChecked
+                        onChange={() => setFormData({ ...formData, paymentMethod: 'Credit / Debit Card (Visa / Mastercard)' })}
                         className="accent-navy-900"
                       />
-                      <span>Credit Card / Debit Card (Encrypted)</span>
+                      <span>Credit Card / Debit Card (Visa / Mastercard)</span>
                     </label>
-                    <p className="text-[10px] text-gray-400 leading-relaxed font-light pl-5">
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-light pl-6">
                       SSL Encrypted 256-bit payment processing via Cele Pay Gateway.
                     </p>
                   </div>
+
+                  {/* Cash on Delivery Option */}
+                  <div className="p-3 bg-cream-50 border border-gray-200 rounded-xl space-y-2">
+                    <label className="flex items-center gap-2 cursor-pointer font-bold text-navy-900">
+                      <input
+                        type="radio"
+                        name="payment"
+                        onChange={() => setFormData({ ...formData, paymentMethod: 'Cash on Delivery (Kigali / Rwanda)' })}
+                        className="accent-navy-900"
+                      />
+                      <span>Cash on Delivery (Kigali & All Provinces)</span>
+                    </label>
+                    <p className="text-[10px] text-gray-400 leading-relaxed font-light pl-6">
+                      Pay cash or MoMo upon delivery at your doorstep in Rwanda.
+                    </p>
+                  </div>
+
                 </div>
 
                 <button
