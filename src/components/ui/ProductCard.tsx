@@ -23,42 +23,42 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       exit={{ opacity: 0, scale: 0.95 }}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.25, type: 'spring', stiffness: 200 }}
-      className="bg-white rounded-2xl p-4 shadow-soft hover:shadow-card transition-all duration-300 border border-gray-100/50 flex flex-col justify-between group relative h-full"
+      className="bg-white rounded-2xl p-2.5 sm:p-4 shadow-soft hover:shadow-card transition-all duration-300 border border-gray-100/50 flex flex-col justify-between group relative h-full"
     >
       
       {/* Top Badges & Wishlist Toggle */}
-      <div className="flex items-center justify-between z-10">
+      <div className="flex items-center justify-between z-10 mb-1">
         {product.originalPrice ? (
-          <span className="bg-rose-500 text-white text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
-            Save ${(product.originalPrice - product.price).toFixed(0)}
+          <span className="bg-rose-500 text-white text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full uppercase tracking-wider shadow-sm">
+            -${(product.originalPrice - product.price).toFixed(0)}
           </span>
         ) : product.isNew ? (
-          <span className="bg-emerald-500 text-white text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          <span className="bg-emerald-500 text-white text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full uppercase tracking-wider shadow-sm">
             NEW
           </span>
         ) : (
           <div />
         )}
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           <button
             onClick={() => setQuickViewProduct(product)}
-            className="w-8 h-8 rounded-full bg-cream-50 hover:bg-cream-100 text-gray-500 hover:text-navy-900 flex items-center justify-center transition-colors"
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cream-50 hover:bg-cream-100 text-gray-500 hover:text-navy-900 flex items-center justify-center transition-colors"
             title="Quick view"
           >
-            <Eye className="w-4 h-4" />
+            <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
           </button>
           
           <button
             onClick={() => toggleWishlist(product.id)}
-            className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors ${
               isWishlisted
                 ? 'bg-rose-50 text-rose-500'
                 : 'bg-cream-50 hover:bg-cream-100 text-gray-400 hover:text-rose-500'
             }`}
             title={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
           >
-            <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-rose-500' : ''}`} />
+            <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isWishlisted ? 'fill-rose-500' : ''}`} />
           </button>
         </div>
       </div>
@@ -66,23 +66,23 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Product Image Centered */}
       <div 
         onClick={() => setQuickViewProduct(product)}
-        className="relative w-full h-48 cursor-pointer overflow-hidden rounded-xl bg-[#F5F5F7] border border-gray-150/40 flex items-center justify-center"
+        className="relative w-full h-32 sm:h-48 cursor-pointer overflow-hidden rounded-xl bg-[#F5F5F7] border border-gray-150/40 flex items-center justify-center"
       >
         <Image
           src={product.image}
           alt={product.name}
           fill
           className="object-cover w-full h-full group-hover:scale-108 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
         />
       </div>
 
       {/* Product Information */}
-      <div className="space-y-2 pt-1 flex-1 flex flex-col justify-end">
+      <div className="space-y-1.5 pt-2 flex-1 flex flex-col justify-end">
         
         {/* Star Rating & Review Count */}
-        <div className="flex items-center gap-1 text-[11px] text-amber-500 font-bold">
-          <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
+        <div className="flex items-center gap-1 text-[10px] sm:text-[11px] text-amber-500 font-bold">
+          <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 stroke-amber-400" />
           <span>{product.rating.toFixed(1)}</span>
           <span className="text-gray-400 font-normal">({product.reviewCount})</span>
         </div>
@@ -90,32 +90,31 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Product Title */}
         <h3 
           onClick={() => setQuickViewProduct(product)}
-          className="font-bold text-navy-900 text-xs sm:text-sm line-clamp-2 cursor-pointer hover:text-gold-600 transition-colors leading-tight h-10"
+          className="font-bold text-navy-900 text-xs sm:text-sm line-clamp-2 cursor-pointer hover:text-gold-600 transition-colors leading-tight h-8 sm:h-10"
         >
           {product.name}
         </h3>
 
         {/* Price & Add to Cart Button */}
-        <div className="flex items-center justify-between pt-2 border-t border-gray-50 mt-1">
-          <div className="flex items-baseline gap-1">
-            <span className="text-sm sm:text-base font-extrabold text-navy-900">
+        <div className="flex items-center justify-between pt-1.5 border-t border-gray-50 mt-1">
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-1">
+            <span className="text-xs sm:text-base font-black text-navy-900">
               ${product.price.toFixed(2)}
             </span>
             {product.originalPrice && (
-              <span className="text-[10px] text-gray-400 line-through">
+              <span className="text-[9px] sm:text-[10px] text-gray-400 line-through">
                 ${product.originalPrice.toFixed(2)}
               </span>
             )}
           </div>
 
-          <motion.button
-            whileTap={{ scale: 0.9 }}
+          <button
             onClick={() => addToCart(product)}
-            className="p-2.5 bg-navy-900 hover:bg-navy-800 text-white rounded-xl shadow-sm transition-all flex items-center justify-center"
-            title="Add to Cart"
+            className="px-2 py-1.5 sm:px-3 sm:py-2 bg-navy-900 hover:bg-navy-800 text-white rounded-lg text-[10px] sm:text-xs font-bold transition-all shadow flex items-center gap-1 shrink-0"
           >
-            <ShoppingBag className="w-4 h-4 text-gold-500" />
-          </motion.button>
+            <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold-500" />
+            <span className="hidden sm:inline">Add</span>
+          </button>
         </div>
 
       </div>

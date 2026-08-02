@@ -53,7 +53,7 @@ export const TrendingSection = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4"
       >
         <AnimatePresence mode="popLayout">
           {trendingProducts.map((product) => (

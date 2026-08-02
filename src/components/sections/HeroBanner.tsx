@@ -95,7 +95,7 @@ export const HeroBanner = () => {
   const slide = HERO_SLIDES[currentSlide];
 
   return (
-    <div className="relative bg-navy-900 rounded-2xl overflow-hidden shadow-card p-6 sm:p-10 lg:p-12 text-white h-full min-h-[420px] lg:min-h-[480px] flex flex-col justify-between border border-navy-800">
+    <div className="relative bg-navy-900 rounded-2xl overflow-hidden shadow-card p-4 sm:p-10 lg:p-12 text-white h-full min-h-[240px] sm:min-h-[420px] lg:min-h-[480px] flex flex-col justify-between border border-navy-800">
       
       {/* Background Subtle Pattern & Gradients */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
@@ -103,11 +103,11 @@ export const HeroBanner = () => {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-teal-500 blur-3xl"></div>
       </div>
 
-      {/* Slide Content with AnimatePresence */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 items-center gap-8 h-full">
+      {/* Slide Content */}
+      <div className="relative z-10 grid grid-cols-12 items-center gap-2 sm:gap-8 h-full">
         
         {/* Left Side Content */}
-        <div className="lg:col-span-7 space-y-5">
+        <div className="col-span-7 sm:col-span-7 space-y-2 sm:space-y-5">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
@@ -115,30 +115,30 @@ export const HeroBanner = () => {
               animate="visible"
               exit="hidden"
               variants={textVariants}
-              className="space-y-4"
+              className="space-y-2 sm:space-y-4"
             >
-              <div className={`inline-flex items-center gap-2 px-3 py-1 border rounded-full ${slide.badgeColor}`}>
-                <Sparkles className="w-3.5 h-3.5" />
-                <span className="text-[10px] font-black tracking-widest uppercase">
+              <div className={`inline-flex items-center gap-1 sm:gap-2 px-2 py-0.5 sm:px-3 sm:py-1 border rounded-full ${slide.badgeColor}`}>
+                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <span className="text-[9px] sm:text-[10px] font-black tracking-widest uppercase">
                   {slide.label}
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
+              <h1 className="text-base sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
                 {slide.heading}
               </h1>
 
-              <p className="text-gray-300 text-sm sm:text-base max-w-lg font-light leading-relaxed">
+              <p className="text-gray-300 text-[11px] sm:text-base max-w-lg font-light leading-snug line-clamp-2 sm:line-clamp-none">
                 {slide.subtitle}
               </p>
 
-              <div className="pt-2 flex items-center gap-4">
+              <div className="pt-1 sm:pt-2 flex items-center gap-4">
                 <Link
                   href={slide.link}
-                  className="inline-flex items-center gap-2 bg-white text-navy-900 hover:bg-gold-500 hover:text-navy-900 font-bold text-sm px-7 py-3.5 rounded-full shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-1.5 bg-white text-navy-900 hover:bg-gold-500 hover:text-navy-900 font-extrabold text-xs sm:text-sm px-4 py-2 sm:px-7 sm:py-3.5 rounded-full shadow-lg transition-all duration-200"
                 >
                   <span>{slide.buttonText}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </Link>
               </div>
             </motion.div>
@@ -146,7 +146,7 @@ export const HeroBanner = () => {
         </div>
 
         {/* Right Side Image Composition */}
-        <div className="lg:col-span-5 relative flex items-center justify-center min-h-[300px] overflow-hidden">
+        <div className="col-span-5 sm:col-span-5 relative flex items-center justify-center min-h-[160px] sm:min-h-[300px] overflow-hidden">
           
           <AnimatePresence mode="wait" custom={direction}>
             {/* Decorative Arch */}
@@ -156,7 +156,7 @@ export const HeroBanner = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className={`absolute w-64 h-80 sm:w-72 sm:h-96 rounded-t-full bg-gradient-to-tr ${slide.archColor} border-2 border-white/10 bottom-0 shadow-inner`}
+              className={`absolute w-36 h-44 sm:w-72 sm:h-96 rounded-t-full bg-gradient-to-tr ${slide.archColor} border-2 border-white/10 bottom-0 shadow-inner`}
             />
 
             {/* Slider Main Image */}
@@ -167,7 +167,7 @@ export const HeroBanner = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              className="relative z-10 w-56 sm:w-64 h-72 sm:h-80 overflow-hidden rounded-2xl flex items-center justify-center"
+              className="relative z-10 w-32 sm:w-64 h-40 sm:h-80 overflow-hidden rounded-2xl flex items-center justify-center"
             >
               <Image
                 src={slide.image}
@@ -178,14 +178,14 @@ export const HeroBanner = () => {
               />
             </motion.div>
 
-            {/* Plant */}
+            {/* Plant badge - desktop only */}
             <motion.div 
               key={`plant-${currentSlide}`}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 20, opacity: 0 }}
               transition={{ delay: 0.2 }}
-              className="absolute bottom-0 -right-2 z-20 w-24 h-28 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20 flex flex-col items-center justify-end shadow-lg"
+              className="hidden sm:flex absolute bottom-0 -right-2 z-20 w-24 h-28 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20 flex-col items-center justify-end shadow-lg"
             >
               <div className="w-full py-1.5 bg-white rounded-lg shadow-inner flex items-center justify-center text-[9px] font-bold text-navy-900 border border-gray-100">
                 {slide.plant}
@@ -198,25 +198,25 @@ export const HeroBanner = () => {
       </div>
 
       {/* Manual Arrow Controls */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-2 z-20">
+      <div className="absolute top-1/2 -translate-y-1/2 left-1 sm:left-2 z-20">
         <button 
           onClick={handlePrev}
-          className="p-2 rounded-full bg-navy-950/40 hover:bg-navy-950/80 border border-white/10 text-white transition-all transform hover:scale-105 active:scale-95"
+          className="p-1 sm:p-2 rounded-full bg-navy-950/40 hover:bg-navy-950/80 border border-white/10 text-white transition-all"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-2 z-20">
+      <div className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-2 z-20">
         <button 
           onClick={handleNext}
-          className="p-2 rounded-full bg-navy-950/40 hover:bg-navy-950/80 border border-white/10 text-white transition-all transform hover:scale-105 active:scale-95"
+          className="p-1 sm:p-2 rounded-full bg-navy-950/40 hover:bg-navy-950/80 border border-white/10 text-white transition-all"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </button>
       </div>
 
       {/* Bottom Slider Dots Indicator */}
-      <div className="absolute bottom-4 left-6 sm:left-10 lg:left-12 flex items-center gap-2 z-20">
+      <div className="absolute bottom-2 sm:bottom-4 left-4 sm:left-10 lg:left-12 flex items-center gap-1.5 sm:gap-2 z-20">
         {HERO_SLIDES.map((_, idx) => (
           <button
             key={idx}
@@ -224,8 +224,8 @@ export const HeroBanner = () => {
               setDirection(idx > currentSlide ? 1 : -1);
               setCurrentSlide(idx);
             }}
-            className={`h-2.5 rounded-full transition-all duration-300 ${
-              currentSlide === idx ? 'w-8 bg-white' : 'w-2.5 bg-white/40 hover:bg-white/70'
+            className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${
+              currentSlide === idx ? 'w-5 sm:w-8 bg-white' : 'w-2 sm:w-2.5 bg-white/40 hover:bg-white/70'
             }`}
           />
         ))}
