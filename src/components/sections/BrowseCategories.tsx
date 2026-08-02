@@ -58,7 +58,7 @@ export const BrowseCategories = () => {
               >
                 {/* Real Image Container */}
                 <div 
-                  className={`w-20 h-20 rounded-full flex items-center justify-center relative overflow-hidden border-2 transition-all duration-300 shadow-sm ${
+                  className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center relative overflow-hidden border-2 transition-all duration-300 shadow-sm ${
                     isSelected
                       ? 'border-gold-500 scale-105 shadow-md ring-4 ring-gold-500/20'
                       : 'border-white group-hover:border-navy-900/40 group-hover:shadow-md'

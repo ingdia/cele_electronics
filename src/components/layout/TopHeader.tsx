@@ -67,7 +67,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onOpenAuthModal }) => {
             </div>
           </Link>
 
-          {/* Center: Wide Rounded Search Bar */}
+          {/* Center: Wide Rounded Search Bar for Desktop */}
           <form 
             onSubmit={handleSearchSubmit} 
             className="flex-1 max-w-xl hidden md:flex items-center relative"
@@ -155,6 +155,29 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onOpenAuthModal }) => {
             </button>
 
           </div>
+        </div>
+
+        {/* Mobile Search Bar Row */}
+        <div className="px-4 pb-2.5 md:hidden">
+          <form onSubmit={handleSearchSubmit} className="relative w-full flex items-center">
+            <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3.5 pointer-events-none" />
+            <input
+              type="text"
+              value={localSearch}
+              onChange={(e) => {
+                setLocalSearch(e.target.value);
+                setSearchQuery(e.target.value);
+              }}
+              placeholder="Search gadgets & devices..."
+              className="w-full bg-cream-50 focus:bg-white border border-gray-200 focus:border-navy-900 text-navy-900 placeholder-gray-400 rounded-full py-1.5 pl-9 pr-20 text-xs focus:outline-none focus:ring-1 focus:ring-navy-900/10 shadow-inner"
+            />
+            <button
+              type="submit"
+              className="absolute right-1 px-3 py-1 bg-navy-900 text-white rounded-full text-[9px] font-bold shadow"
+            >
+              Search
+            </button>
+          </form>
         </div>
       </header>
     </div>
