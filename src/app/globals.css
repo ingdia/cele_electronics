@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #000000; /* Swapped Navy with Black */
+    --color-gold: #D4A843;
+    --color-cream: #F5F0EB;
+  }
+
+  body {
+    background-color: #F5F0EB;
+    color: #000000;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Utilities for Cele Electronics */
+.bg-cream {
+  background-color: #F5F0EB;
+}
+
+.bg-navy-900 {
+  background-color: #000000;
+}
+
+.text-navy-900 {
+  color: #000000;
+}
+
+.border-navy-900 {
+  border-color: #000000;
+}
+
+.bg-gold-500 {
+  background-color: #D4A843;
+}
+
+.text-gold-500 {
+  color: #D4A843;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F0EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
